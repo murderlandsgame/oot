@@ -186,7 +186,7 @@ endif
 
 # Detect compiler and set variables appropriately.
 ifeq ($(COMPILER),gcc)
-  CC       := $(MIPS_BINUTILS_PREFIX)gcc
+  CC       := arm-none-eabi-gcc
 else ifeq ($(COMPILER),ido)
   CC       := tools/ido_recomp/$(DETECTED_OS)/7.1/cc
   CC_OLD   := tools/ido_recomp/$(DETECTED_OS)/5.3/cc
@@ -220,7 +220,7 @@ CHECK_WARNINGS += -Werror=implicit-int -Werror=implicit-function-declaration -We
 
 # The `cpp` command behaves differently on macOS (it behaves as if
 # `-traditional-cpp` was passed) so we use `gcc -E` instead.
-CPP        := gcc -E
+CPP        := arm-none-eabi-gcc -E
 MKLDSCRIPT := tools/mkldscript
 MKDMADATA  := tools/mkdmadata
 ELF2ROM    := tools/elf2rom
